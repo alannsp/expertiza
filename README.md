@@ -9,8 +9,10 @@ Expertiza
 ###Problem description
 Currently when an Instructor logs into Expertiza,there a lot of select* from assignments queries being fired on database which would have an adverse effect on performance.
 Analyze and reduce the number of select queries executed to improve the performance.
-![Before modified](https://github.com/fwu8/expertiza/tree/master/photo/before_modify.png)
+![Alt text](https://github.com/fwu8/expertiza/tree/master/photo/before_modify.png?raw=true "optional Title")
 
+###Use Query Reviewer to trace the queries
+![Alt text](https://github.com/fwu8/expertiza/blob/master/photo/Screenshot%20from%202015-03-14%2018:47:51.png?raw=true "optional Title")
 
 
 
