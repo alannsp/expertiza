@@ -1,4 +1,5 @@
-<% owner_id = Object.const_get('Assignment').find(node.node_object_id).instructor_id %>
+<% @assignment = Assignment.find(node.node_object_id) %>
+<% owner_id = @assignment.instructor_id %>
 
 <TD WIDTH="15%">
   <ul id="actionmenu">
@@ -8,7 +9,6 @@
         <% if is_available(session[:user], owner_id) || (session[:user].role_id == 6 && is_available(User.find(Ta.get_my_instructor(session[:user].id)), owner_id)) %>
           <div>
               <%= link_to image_tag('/assets/tree_view/add-participant-24.png', :title => 'Add participants'), {:controller=>'participants', :action=>'list', :id => node.node_object_id, :model => 'Assignment', :special_role => 'Participant'}, {:title => 'Add participants'}%>
-            <% @assignment = Assignment.find(node.node_object_id) %>
 
             <!--ACS Show the create team option in the assignment for the instructor only if
             the assignment allows teams to be formed with more than 1 participant-->
