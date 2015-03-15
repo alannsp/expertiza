@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'rails'
 
 ## Gems in Alphabetical Order
+gem "query_reviewer"
 gem 'eventmachine', :git => 'git://github.com/eventmachine/eventmachine.git', :branch => 'master'
 gem 'mysql'
 gem 'activerecord-session_store'

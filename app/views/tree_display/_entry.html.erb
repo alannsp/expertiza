@@ -17,6 +17,7 @@
 <% else %>
   <%= render :partial=> '/tree_display/actions/no_actions' %>
 <% end %>
+<% if child_nodes %>
 <%= render :partial => '/tree_display/row_footer',
   :locals => {
   :depth => depth,
@@ -25,3 +26,4 @@
   :child_nodes => child_nodes,
   :rowtype => nil
 } %>
+<% end %>

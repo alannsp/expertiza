@@ -9,11 +9,12 @@
      <%   index += 1
        end
   end %>
+  <% parentNode = Assignment.find(parent_node.node_object_id) %>
 <% if parent_node.is_leaf %>
   <TD WIDTH="2%">&nbsp;</TD>
   <TD WIDTH="2%">&nbsp;</TD>
 <% else %>
-  <% if parent_node.get_name == 'Courses'&& session[:user].role_id == 6 %>
+  <% if parentNode.name == 'Courses'&& session[:user].role_id == 6 %>
   <%else%>
     <% if child_nodes %>
       <TD WIDTH="2%" ALIGN="RIGHT"><a id="<%= prefix %>Link" name="<%= prefix %>Link" href="#" <% if child_nodes.length > 0  %>onclick="toggleList('<%= prefix %>',<%= child_nodes.length %>);alternate('theTable');return false;"><img src="/assets/expand.png"><% else %>onclick="return false;"><img src="/assets/noaction.png"><% end %></a></TD>
@@ -23,17 +24,17 @@
 <% end %>
 <% width = 66 - depth * 2 %>
 <TD COLSPAN="<%= 3 - depth %>" WIDTH="<%= width %>%">
-  <% if parent_node.get_name == 'Courses'&& session[:user].role_id == 6 %>
+  <% if parentNode.name == 'Courses'&& session[:user].role_id == 6 %>
   <%else%>
-    <%= parent_node.get_name %>
-    <% if parent_node.get_directory != nil%>
-      <BR/><I>Directory:</I> <%= parent_node.get_directory %>
+    <%= parentNode.name %>
+    <% if parentNode.directory_path != nil%>
+      <BR/><I>Directory:</I> <%= parentNode.directory_path %>
   <% end %>
-  <% if parent_node.get_creation_date != nil %>
-    <BR/><I>Creation Date:</I> <%= parent_node.get_creation_date %>
+  <% if parentNode.created_at != nil %>
+    <BR/><I>Creation Date:</I> <%= parentNode.created_at %>
 <% end %>
-<% if parent_node.get_modified_date != nil %>
-  <BR/><I>Updated Date:</I> <%= parent_node.get_modified_date %>
+<% if parentNode.updated_at != nil %>
+  <BR/><I>Updated Date:</I> <%= parentNode.updated_at %>
         <% end %>
 
       <%end%>

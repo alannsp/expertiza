@@ -1,0 +1,6 @@
+<h1>Manage content</h1>
+<%= render :partial => 'page_header' %>
+<%= render :partial => 'bread_crumbs' %>
+<%=  render :partial => 'page_footer' %>
+# view.html.haml
+= query_review_output
