@@ -14,12 +14,13 @@ Analyze and reduce the number of select queries executed to improve the performa
 There are six select assignment queries after load _row_header.html.erb
 ###Use [Query Reviewer](https://github.com/nesquena/query_reviewer) to trace the queries
 
-<img align=left src="https://github.com/fwu8/expertiza/blob/master/photo/Screenshot%20from%202015-03-14%2018:57:00.png" style="float:left;with:100px;height:300px">
+<img align=left src="https://github.com/fwu8/expertiza/blob/master/photo/query_reviewer.png" style="float:left;with:100px;height:300px">
 We use Query Reviewer to trace the queries and found the where the queries are executed multiply times.
 
 ###What we do to fix it
 * We found that the _row_header.html.erb file called methods form assignment_node.rb, which executed the select assignment queries multiple times, which are redundant.
 After modifying the methods,the performance is highly improved.
 <img align=left src="https://github.com/fwu8/expertiza/blob/master/photo/after_modify.png" style="float:left;with:100px;height:300px">
-As shown above,there is only one query executed after _row_header.html.erb is loaded.
-The time consumption has been reduced dramatically.
+
+* As shown above,there is only one query executed after _row_header.html.erb is loaded.
+The time consumption has been reduced dramatically.(Dropped from 900+ms to 200+ms)
