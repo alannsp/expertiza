@@ -21,6 +21,7 @@ We use Query Reviewer to trace the queries and found the where the queries are e
 * We found that the _row_header.html.erb file called methods form assignment_node.rb, which executed the select assignment queries multiple times, which are redundant.
 After modifying the methods,the performance is highly improved.
 * We also modified _assignments_actions.html.erb to further improve the performance.
+
 ####Screenshot of console when Instructor logs in after modification
 <img align=left src="https://github.com/fwu8/expertiza/blob/master/photo/after_modify.png" style="float:left;with:100px;height:300px">
 
