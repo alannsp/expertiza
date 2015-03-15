@@ -9,7 +9,7 @@ Expertiza
 ###Problem description
 Currently when an Instructor logs into Expertiza,there a lot of select* from assignments queries being fired on database which would have an adverse effect on performance.
 Analyze and reduce the number of select queries executed to improve the performance.
-##Screenshot of console when Instructor logs in.
+####Screenshot of console when Instructor logs in
 <img align=left src="https://github.com/fwu8/expertiza/blob/master/photo/before_modify.png" style="float:left;with:100px;height:300px">
 There are six select assignment queries after load _row_header.html.erb
 ###Use [Query Reviewer](https://github.com/nesquena/query_reviewer) to trace the queries
@@ -20,6 +20,7 @@ We use Query Reviewer to trace the queries and found the where the queries are e
 ###What we do to fix it
 * We found that the _row_header.html.erb file called methods form assignment_node.rb, which executed the select assignment queries multiple times, which are redundant.
 After modifying the methods,the performance is highly improved.
+####Screenshot of console when Instructor logs in after modification
 <img align=left src="https://github.com/fwu8/expertiza/blob/master/photo/after_modify.png" style="float:left;with:100px;height:300px">
 
 * As shown above,there is only one query executed after _row_header.html.erb is loaded.
